@@ -1,91 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>  </title>
-	<link href="styles.css" rel="stylesheet" type="text/css" media="all">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitio Personal</title>
+    <link rel="stylesheet" href="basicosestilos.css">
 </head>
 <body>
-
-	<div class="container">
-
-		<header>
-			<span>Lucca Traslosheros Abascal</span>
-		</header>
-		
-		<div class="small">
-			<nav>
-				<div>navigation</div>
-				<a href="https://code.visualstudio.com/" target="_blank">VSCode</a>
-				<a>link</a>
-				<a>link</a>
-				<a>link</a>
-				<a>link</a>
-				<a>link</a>
-				<a>longer link</a>
-				<a>an even longer link</a>
-				<a>last link</a>
-			</nav>
-			
-			<img src="">
+    <main>
+        <div class="card">
+            <header><strong>Lucca Traslosheros Abascal</strong></header>   
+        </div>
+        <div class="subheader">
+            <h2>Sobre Mi</h2>
+			<h3> A01713944 </h3>
+            <p> Tengo 21 años y me encantan mis gatos y me encanta ver la música en vivo. 
+				Soy muy fan de The Garden, me gusta ir al gimnasio y jugar Fortnite. 
+				Me encantan series como The Sopranos, Better Call Saul, y Portlandia.  </p>
+        </div>
+		<div class = "card"> 
+			<img src = 'gatos.JPG' alt = "2 gatitos lindos" width = 400px>
 		</div>
-		
-		<section class="half">
-			<h1>welcome to my homepage!</h1>
-			<h2>Heading 2</h2>
-			<h3>Heading 3</h3>
-			<h4>Heading 4</h4>
-			<p>
-				<strong>This is strong,</strong>
-				this is normal, and
-				<em>this is emphasized!</em>
-				<a href="#">This is a link.</a>
-				<sup>This is superscript;</sup>
-				<sub>this is subscript.</sub>
-				<code>This is code.</code>
-				<s>This is strikethrough.</s>
-			</p>
-			<ul>
-				<li>Unordered list item 1</li>
-				<li>Unordered list item 2
-					<ul>
-						<li>Nested list</li>
-					</ul>
+		<div class = "card">
+			<h2>Lista de Preguntas y Respuestas</h2>
+			<ul> 
+				<li>¿Cuál es la diferencia entre Internet y la World Wide Web?
+					<p>La internet existió antes de la WWW. Es una red de computadoras que están interconectadas. Es una infraestructura para poder conectar todo junto. La WWW es algo que existe por encima de la internet. Es un sistema de documentos, páginas web, que se puede acceder a través de un protocolo como HTTP o HTTPS.</p>
 				</li>
-				<li>Unordered list item 3</li>
+				<li>¿Cuáles son las partes de un URL?
+					<p>Por ejemplo, una URL como https://experiencia21.tec.mx/ El HTTPS indica el protocolo, el "experiencia21" indica el subdominio, el "tec.mx" es el dominio. También existe la ruta que te lleva directo a un recurso dentro del servidor. La puerta, como ":8080" indica la entrada del servidor web.</p>
+				</li>
+				<li>¿Cuál es el propósito de los métodos HTTP: GET, HEAD, POST, PUT, PATCH, DELETE?
+					<p>Son métodos de petición para realizar unas acciones dentro de un recurso. GET - Solicita un recurso y solo debe recuperar datos. HEAD - Igual que un GET pero sin el cuerpo de la respuesta. POST - Envía una entidad a un recurso. Causa un cambio en el servidor. PUT - Reemplaza las representaciones al momento en un recurso. PATCH - Aplica modificaciones parciales a un recurso. DELETE - Borrar un recurso.</p>
+				</li>
+				<li>¿Qué método HTTP se debe utilizar al enviar un formulario HTML, por ejemplo cuando ingresas tu usuario y contraseña en algún sitio? ¿Por qué?
+					<p>Se usaría un POST para mandar los detalles del usuario y contraseña. Esto permite que los datos se manden al servidor y se pueden procesar.</p>
+				</li>
+				<li>¿Qué método HTTP se utiliza cuando a través de un navegador web se accede a una página a través de un URL?
+					<p>Se usa un GET para obtener los contenidos de la página. Esto solicita los recursos de la página y permite recuperar los datos.</p>
+				</li>
+				<li>Un servidor web devuelve una respuesta HTTP con código 200. ¿Qué significa esto? ¿Ocurrió algún error?
+					<p>Significa que la solicitud fue exitosa. Indica "OK" no hubo ningún error y se entregó la información esperada.</p>
+				</li>
+				<li>¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 404? ¿Por qué?
+					<p>Puede ser error del desarrollador si fue un enlace roto dentro del sitio. Pero si fue escribir mal el URL entonces es falta del usuario.</p>
+				</li>
+				<li>¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 500? ¿Por qué?
+					<p>Definitivamente, esto indica que fue un "Internal Server Error" así que es un fallo de servidor interno y se debe corregir.</p>
+				</li>
+				<li>¿Qué significa que un atributo HTML5 esté depreciado o desaprobado (deprecated)? Menciona algunos elementos de HTML 4 que en HTML5 estén desaprobados.
+					<p>Significa que ya no se usan en la nueva versión y no van a ser reconocidos por navegadores.</p>
+				</li>
+				<li>¿Cuáles son las diferencias principales entre HTML 4 y HTML5?</li>
+				<li>¿Qué componentes de estructura y estilo tiene una tabla?</li>
+				<li>¿Cuáles son los principales controles de una forma HTML5?</li>
+				<li>¿Qué tanto soporte HTML5 tiene el navegador que utilizas? Puedes utilizar la siguiente página para descubrirlo: http://html5test.com/ (Al responder la pregunta recuerda poner el navegador que utilizas)</li>
+				<li>Sobre el ciclo de vida y desarrollo de los sistemas de información:</li>
+				<li>¿Cuál es el ciclo de vida de los sistemas de información?</li>
+				<li>¿Cuál es el ciclo de desarrollo de sistemas de información?</li>
 			</ul>
-			<ol>
-				<li>Unordered list item 1</li>
-				<li>Unordered list item 2
-					<ul>
-						<li>Nested list</li>
-					</ul>
-				</li>
-				<li>Unordered list item 3</li>
-			</ol>
-		</section>
-				
-		<section class="small">
-			<h2>another section</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut iaculis orci at sodales convallis. Proin luctus vehicula dolor, id ultrices diam eleifend eu. Donec tincidunt tellus tellus, in maximus lorem fermentum ac. Phasellus sagittis nisi in ante pretium, eget molestie est pellentesque. Ut tincidunt ultricies porta.</p>
-		</section>
-		
-		<section class="full">
-			<h2>full width section</h2>
-		</section>
-		
-		<section class="half">
-			<h2>half width section</h2>
-		</section>
-		
-		<section class="half">
-			<h2>half width section</h2>
-		</section>
-		
-	</div>
-
+			<h3>Citas:</h3>
+			<ul>
+				<li><a href="https://www.techtarget.com/whatis/definition/World-Wide-Web" target="_blank">https://www.techtarget.com/whatis/definition/World-Wide-Web</a></li>
+				<li><a href="https://concepto.de/url/" target="_blank">https://concepto.de/url/</a></li>
+				<li><a href="https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Methods" target="_blank">https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Methods</a></li>
+				<li><a href="https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Status/200" target="_blank">https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Status/200</a></li>
+			</ul>
+		</div>
+    </main>
 	
-
+	<footer> 
+            <a href="https://code.visualstudio.com/" target="_blank">VSCode Editor</a>
+    </footer>
 </body>
 </html>
