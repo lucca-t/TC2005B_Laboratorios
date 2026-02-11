@@ -1,49 +1,124 @@
-body {
-    margin: 0;
-    background-color: white; 
-    font-family: sans-serif;
-    padding: 20px;
+.container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: calc(100vh - 40px);
+    max-width: 100%;
+    min-height: 100vh;
+    gap: 2rem;
+    margin: auto;
 }
 
 .card {
-    background-color: #EDE8D0;
-    padding: 2rem;
-    border-radius: 8px;
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
     text-align: center;
-    border-color: black;
-    border-width: 4px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    width: 80%;
-    max-width: 600px;
 }
 
 .subheader {
-    text-align: center;
-    width: 90%;
-    max-width: 600px;
-    color: #333;
-}
-
-header {
-    margin-bottom: 1rem;
-    font-size: 2.5rem;
-}
-
-footer {
-    padding: 20px;
-    text-align: center;
-    border-top: 1px solid #ddd;
-}
-
-main {
+    flex: 2; 
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-    flex-grow: 1;
+}
+
+.subheader h2,
+.subheader h3 {
+    text-align: center;
+    width: 100%;
+}
+
+.subheader h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.3rem;
+}
+.subheader h3 {
+    margin-top: 0;
+    font-size:1.7rem;
+}
+.subheader p {
+    text-align: left;
+    width: 100%;
+    max-width: 45ch;
+}
+
+body {
+  font-family: "Varela", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  min-height: 100vh
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#name {
+    font-size:5rem;
+}
+
+#quote {
+    font-size:1.1rem;   
+}
+
+main {
+    min-height: 100vh;
+    display: flex;
+    align-items: stretch; 
     justify-content: center;
+}
+
+.container {
+    display: flex;
+    max-width: 100%;
+    min-height: 100vh;
+    gap: 2rem;
+    margin: auto;
+}
+
+.card,
+.subheader {
+    flex: 1 1 50vw;   
+    display: flex;
+    flex-direction: column;
+    align-items: center;      
+    justify-content: center;  
+    min-height: 100vh;
+    text-align: center;
+    
+}
+
+footer {
+    text-align: center;
+    width: 100%;
+    padding: 1rem 0;
+}
+
+.seperator {
+    border: none;
+    border-top: 2px solid #222;
+    width: 60%;
+    margin: 1.5rem auto;
+}
+
+@media (max-width: 43.75em) {
+    html {
+        font-size: 12px;
+    }
+    .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .card, .subheader {
+        min-width: 0;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    .subheader p {
+        max-width: 100%;
+    }
 }
