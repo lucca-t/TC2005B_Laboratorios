@@ -4,94 +4,156 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sitio Personal</title>
-    <link rel="stylesheet" href="viejo.css">
+    <link rel="stylesheet" href="../css/viejo_nice.css">
 </head>
-<body>
-    <main>
-        <div class="card">
-            <header>
-				<h1>Lucca Traslosheros Abascal</h1>
-				<h4><a href = "index.html"> Version NUEVA de Laboratorio 1</a></h4>
 
-			</header>   
+<body>
+    <!-- Hero Section -->
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">Lucca Traslosheros Abascal</h1>
+                <p class="subtitle"><a href="index.html" class="has-text-white has-text-weight-bold">Version NUEVA de Laboratorio 1</a></p>
+            </div>
         </div>
-        <div class="subheader">
-            <h2>Sobre Mi</h2>
-			<h3> A01713944 </h3>
-            <p> Tengo 21 años y me encantan mis gatos y me encanta ver la música en vivo. 
-				Soy muy fan de The Garden, me gusta ir al gimnasio y jugar Fortnite. 
-				Me encantan series como The Sopranos, Better Call Saul, y Portlandia.  </p>
-        </div>
-		<div class = "card"> 
-			<img src = '../media/gatos.JPG' alt = "2 gatitos lindos" width = 400px>
-		</div>
-		<div class = "card">
-			<h2>Lista de Preguntas y Respuestas</h2>
-			<ul> 
-				<li>¿Cuál es la diferencia entre Internet y la World Wide Web?
-					<p>La internet existió antes de la WWW. Es una red de computadoras que están interconectadas. Es una infraestructura para poder conectar todo junto. La WWW es algo que existe por encima de la internet. Es un sistema de documentos, páginas web, que se puede acceder a través de un protocolo como HTTP o HTTPS.</p>
-				</li>
-				<li>¿Cuáles son las partes de un URL?
-					<p>Por ejemplo, una URL como https://experiencia21.tec.mx/ El HTTPS indica el protocolo, el "experiencia21" indica el subdominio, el "tec.mx" es el dominio. También existe la ruta que te lleva directo a un recurso dentro del servidor. La puerta, como ":8080" indica la entrada del servidor web.</p>
-				</li>
-				<li>¿Cuál es el propósito de los métodos HTTP: GET, HEAD, POST, PUT, PATCH, DELETE?
-					<p>Son métodos de petición para realizar unas acciones dentro de un recurso. GET - Solicita un recurso y solo debe recuperar datos. HEAD - Igual que un GET pero sin el cuerpo de la respuesta. POST - Envía una entidad a un recurso. Causa un cambio en el servidor. PUT - Reemplaza las representaciones al momento en un recurso. PATCH - Aplica modificaciones parciales a un recurso. DELETE - Borrar un recurso.</p>
-				</li>
-				<li>¿Qué método HTTP se debe utilizar al enviar un formulario HTML, por ejemplo cuando ingresas tu usuario y contraseña en algún sitio? ¿Por qué?
-					<p>Se usaría un POST para mandar los detalles del usuario y contraseña. Esto permite que los datos se manden al servidor y se pueden procesar.</p>
-				</li>
-				<li>¿Qué método HTTP se utiliza cuando a través de un navegador web se accede a una página a través de un URL?
-					<p>Se usa un GET para obtener los contenidos de la página. Esto solicita los recursos de la página y permite recuperar los datos.</p>
-				</li>
-				<li>Un servidor web devuelve una respuesta HTTP con código 200. ¿Qué significa esto? ¿Ocurrió algún error?
-					<p>Significa que la solicitud fue exitosa. Indica "OK" no hubo ningún error y se entregó la información esperada.</p>
-				</li>
-				<li>¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 404? ¿Por qué?
-					<p>Puede ser error del desarrollador si fue un enlace roto dentro del sitio. Pero si fue escribir mal el URL entonces es falta del usuario.</p>
-				</li>
-				<li>¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 500? ¿Por qué?
-					<p>Definitivamente, esto indica que fue un "Internal Server Error" así que es un fallo de servidor interno y se debe corregir.</p>
-				</li>
-				<li>¿Qué significa que un atributo HTML5 esté depreciado o desaprobado (deprecated)? Menciona algunos elementos de HTML 4 que en HTML5 estén desaprobados.
-					<p>Significa que ya no se usan en la nueva versión y no van a ser reconocidos por navegadores.</p>
-				</li>
-				<li>¿Cuáles son las diferencias principales entre HTML 4 y HTML5?
-					<p>Ya no es un estándar solito e incluye CSS. Un cambio clave son las etiquetas semánticas. Tiene mejor soporte multimedia para audio y video, incluso vectores SVG.</p>
-				</li>
-				<li>¿Qué componentes de estructura y estilo tiene una tabla?
-					<p>Una tabla tiene varios componentes. Empieza con las etiquetas para empezar la tabla con <code>&lt;table&gt;</code>, también tiene <code>&lt;tr&gt;</code> para las filas, <code>&lt;th&gt;</code> para encabezados, <code>&lt;td&gt;</code> para celdas regulares. Los estilos de CSS se utilizan para cambiar el tamaño, padding, colores, bordes de las celdas. Se puede hacer responsive para que se adapte a la pantalla del usuario.</p>
-				</li>
-				<li>¿Cuáles son los principales controles de una forma HTML5?
-					<p>Input, Form, Label, Button, Checkbox, Password, Reset, Submit.</p>
-				</li>
-				<li>¿Qué tanto soporte HTML5 tiene el navegador que utilizas? Puedes utilizar la siguiente página para descubrirlo: http://html5test.com/ (Al responder la pregunta recuerda poner el navegador que utilizas)
-					<p>Zen Browser (basado en Firefox) 504/555</p>
-				</li>
-				<li>¿Cuál es el ciclo de vida de los sistemas de información?
-					<p>Planificación, Análisis de Requirimientos, Diseño, Desarrollo, Prueba, Integración y Ejecución, Operación y Mantenimiento.</p>
-				</li>
-				<li>¿Cuál es el ciclo de desarrollo de sistemas de información?
-					<p>Planeación, Análisis, Diseño, Implementación, Mantenimiento.</p>
-				</li>
-				<br><br>	
-				Citas:
-				<ul style="text-align:left">
-					<li><a href="https://www.techtarget.com/whatis/definition/World-Wide-Web" target="_blank">https://www.techtarget.com/whatis/definition/World-Wide-Web</a></li>
-					<li><a href="https://concepto.de/url/" target="_blank">https://concepto.de/url/</a></li>
-					<li><a href="https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Methods" target="_blank">https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Methods</a></li>
-					<li><a href="https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Status/200" target="_blank">https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Status/200</a></li>
-					<li><a href="https://desarrolladoraweb.com/blog/html5-vs-html4-cual-es-la-diferencia" target="_blank">https://desarrolladoraweb.com/blog/html5-vs-html4-cual-es-la-diferencia</a></li>
-					<li><a href="https://nelkodev.com/blog/dominando-las-tablas-en-html-estructura-y-estilos-paso-a-paso/#" target="_blank">https://nelkodev.com/blog/dominando-las-tablas-en-html-estructura-y-estilos-paso-a-paso/#</a></li>
-					<li><a href="https://developer.mozilla.org/es/docs/Learn_web_development/Extensions/Forms/Basic_native_form_controls" target="_blank">https://developer.mozilla.org/es/docs/Learn_web_development/Extensions/Forms/Basic_native_form_controls</a></li>
-					<li><a href="https://www.lifeder.com/ciclo-vida-sistema-informacion/" target="_blank">https://www.lifeder.com/ciclo-vida-sistema-informacion/</a></li>
-				</ul>
-				
-			</ul>
-		</div>
+    </section>
+
+    <main>
+        <!-- About Section -->
+        <section class="section">
+            <div class="container">
+                <div class="columns is-centered">
+                    <div class="column is-three-quarters">
+                        <div class="box">
+                            <h2 class="title is-3">Sobre Mi</h2>
+                            <p class="subtitle is-5">A01713944</p>
+                            <p class="content">
+                                Tengo 21 años y me encantan mis gatos y me encanta ver la música en vivo.
+                                Soy muy fan de The Garden, me gusta ir al gimnasio y jugar Fortnite.
+                                Me encantan series como The Sopranos, Better Call Saul, y Portlandia.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Section -->
+        <section class="section">
+            <div class="container has-text-centered">
+                <figure class="image is-inline-block" style="max-width: 400px;">
+                    <img src="../media/gatos.JPG" alt="2 gatitos lindos">
+                </figure>
+            </div>
+        </section>
+
+        <!-- Q&A Section -->
+        <section class="section">
+            <div class="container">
+                <h2 class="title is-3 has-text-centered">Lista de Preguntas y Respuestas</h2>
+                
+                <div class="box qna-block">
+                    <strong class="qna-question">¿Cuál es la diferencia entre Internet y la World Wide Web?</strong>
+                    <p>La internet existió antes de la WWW. Es una red de computadoras que están interconectadas. Es una infraestructura para poder conectar todo junto. La WWW es algo que existe por encima de la internet. Es un sistema de documentos, páginas web, que se puede acceder a través de un protocolo como HTTP o HTTPS.</p>
+                </div>
+
+                <div class="box qna-block">
+                    <strong class="qna-question">¿Cuáles son las partes de un URL?</strong>
+                    <p>Por ejemplo, una URL como https://experiencia21.tec.mx/ El HTTPS indica el protocolo, el "experiencia21" indica el subdominio, el "tec.mx" es el dominio. También existe la ruta que te lleva directo a un recurso dentro del servidor. La puerta, como ":8080" indica la entrada del servidor web.</p>
+                </div>
+
+                <div class="box qna-block">
+                    <strong class="qna-question">¿Cuál es el propósito de los métodos HTTP: GET, HEAD, POST, PUT, PATCH, DELETE?</strong>
+                    <p>Son métodos de petición para realizar unas acciones dentro de un recurso. GET - Solicita un recurso y solo debe recuperar datos. HEAD - Igual que un GET pero sin el cuerpo de la respuesta. POST - Envía una entidad a un recurso. Causa un cambio en el servidor. PUT - Reemplaza las representaciones al momento en un recurso. PATCH - Aplica modificaciones parciales a un recurso. DELETE - Borrar un recurso.</p>
+                </div>
+
+                <div class="box qna-block">
+                    <strong class="qna-question">¿Qué método HTTP se debe utilizar al enviar un formulario HTML, por ejemplo cuando ingresas tu usuario y contraseña en algún sitio? ¿Por qué?</strong>
+                    <p>Se usaría un POST para mandar los detalles del usuario y contraseña. Esto permite que los datos se manden al servidor y se pueden procesar.</p>
+                </div>
+
+                <div class="box qna-block">
+                    <strong class="qna-question">¿Qué método HTTP se utiliza cuando a través de un navegador web se accede a una página a través de un URL?</strong>
+                    <p>Se usa un GET para obtener los contenidos de la página. Esto solicita los recursos de la página y permite recuperar los datos.</p>
+                </div>
+
+                <div class="box qna-block">
+                    <strong class="qna-question">Un servidor web devuelve una respuesta HTTP con código 200. ¿Qué significa esto? ¿Ocurrió algún error?</strong>
+                    <p>Significa que la solicitud fue exitosa. Indica "OK" no hubo ningún error y se entregó la información esperada.</p>
+                </div>
+
+                <div class="box qna-block">
+                    <strong class="qna-question">¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 404? ¿Por qué?</strong>
+                    <p>Puede ser error del desarrollador si fue un enlace roto dentro del sitio. Pero si fue escribir mal el URL entonces es falta del usuario.</p>
+                </div>
+
+                <div class="box qna-block">
+                    <strong class="qna-question">¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 500? ¿Por qué?</strong>
+                    <p>Definitivamente, esto indica que fue un "Internal Server Error" así que es un fallo de servidor interno y se debe corregir.</p>
+                </div>
+
+                <div class="box qna-block">
+                    <strong class="qna-question">¿Qué significa que un atributo HTML5 esté depreciado o desaprobado (deprecated)? Menciona algunos elementos de HTML 4 que en HTML5 estén desaprobados.</strong>
+                    <p>Significa que ya no se usan en la nueva versión y no van a ser reconocidos por navegadores.</p>
+                </div>
+
+                <div class="box qna-block">
+                    <strong class="qna-question">¿Cuáles son las diferencias principales entre HTML 4 y HTML5?</strong>
+                    <p>Ya no es un estándar solito e incluye CSS. Un cambio clave son las etiquetas semánticas. Tiene mejor soporte multimedia para audio y video, incluso vectores SVG.</p>
+                </div>
+
+                <div class="box qna-block">
+                    <strong class="qna-question">¿Qué componentes de estructura y estilo tiene una tabla?</strong>
+                    <p>Una tabla tiene varios componentes. Empieza con las etiquetas para empezar la tabla con <code>&lt;table&gt;</code>, también tiene <code>&lt;tr&gt;</code> para las filas, <code>&lt;th&gt;</code> para encabezados, <code>&lt;td&gt;</code> para celdas regulares. Los estilos de CSS se utilizan para cambiar el tamaño, padding, colores, bordes de las celdas. Se puede hacer responsive para que se adapte a la pantalla del usuario.</p>
+                </div>
+
+                <div class="box qna-block">
+                    <strong class="qna-question">¿Cuáles son los principales controles de una forma HTML5?</strong>
+                    <p>Input, Form, Label, Button, Checkbox, Password, Reset, Submit.</p>
+                </div>
+
+                <div class="box qna-block">
+                    <strong class="qna-question">¿Qué tanto soporte HTML5 tiene el navegador que utilizas? Puedes utilizar la siguiente página para descubrirlo: http://html5test.com/ (Al responder la pregunta recuerda poner el navegador que utilizas)</strong>
+                    <p>Zen Browser (basado en Firefox) 504/555</p>
+                </div>
+
+                <div class="box qna-block">
+                    <strong class="qna-question">¿Cuál es el ciclo de vida de los sistemas de información?</strong>
+                    <p>Planificación, Análisis de Requirimientos, Diseño, Desarrollo, Prueba, Integración y Ejecución, Operación y Mantenimiento.</p>
+                </div>
+
+                <div class="box qna-block">
+                    <strong class="qna-question">¿Cuál es el ciclo de desarrollo de sistemas de información?</strong>
+                    <p>Planeación, Análisis, Diseño, Implementación, Mantenimiento.</p>
+                </div>
+
+                <!-- References Section -->
+                <div class="box">
+                    <h3 class="title is-5">Citas</h3>
+                    <ul>
+                        <li><a href="https://www.techtarget.com/whatis/definition/World-Wide-Web" target="_blank">https://www.techtarget.com/whatis/definition/World-Wide-Web</a></li>
+                        <li><a href="https://concepto.de/url/" target="_blank">https://concepto.de/url/</a></li>
+                        <li><a href="https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Methods" target="_blank">https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Methods</a></li>
+                        <li><a href="https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Status/200" target="_blank">https://developer.mozilla.org/es/docs/Web/HTTP/Reference/Status/200</a></li>
+                        <li><a href="https://desarrolladoraweb.com/blog/html5-vs-html4-cual-es-la-diferencia" target="_blank">https://desarrolladoraweb.com/blog/html5-vs-html4-cual-es-la-diferencia</a></li>
+                        <li><a href="https://nelkodev.com/blog/dominando-las-tablas-en-html-estructura-y-estilos-paso-a-paso/#" target="_blank">https://nelkodev.com/blog/dominando-las-tablas-en-html-estructura-y-estilos-paso-a-paso/#</a></li>
+                        <li><a href="https://developer.mozilla.org/es/docs/Learn_web_development/Extensions/Forms/Basic_native_form_controls" target="_blank">https://developer.mozilla.org/es/docs/Learn_web_development/Extensions/Forms/Basic_native_form_controls</a></li>
+                        <li><a href="https://www.lifeder.com/ciclo-vida-sistema-informacion/" target="_blank">https://www.lifeder.com/ciclo-vida-sistema-informacion/</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
     </main>
-	
-	<footer> 
-            <a href="https://code.visualstudio.com/" target="_blank">VSCode Editor</a>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <a href="https://code.visualstudio.com/" target="_blank" class="button is-light">
+                    <span>VS Code Editor</span>
+                </a>
+            </p>
+        </div>
     </footer>
 </body>
 </html>

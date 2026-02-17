@@ -1,0 +1,82 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css";
+
+/* Cambiando unas cositas en especifico de Bulma para customizar */
+:root {
+    --bulma-primary: #3273dc;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.hero.is-primary {
+    background: linear-gradient(135deg, #3273dc 0%, #2366d1 100%);
+}
+
+.section {
+    padding: 3rem 1.5rem;
+}
+
+.box {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.box:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Seccion de preguntas */
+.qna-block {
+    max-width: 700px;
+    margin: 1.5rem auto;
+    text-align: center;
+    padding: 2rem;
+}
+
+.qna-question {
+    color: #3273dc;
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.qna-block p {
+    text-align: left;
+    line-height: 1.6;
+}
+
+:root {
+    --bulma-primary: #3273dc;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.hero.is-primary {
+    background: linear-gradient(135deg, #3273dc 0%, #2366d1 100%);
+}
+
+.section {
+    padding: 3rem 1.5rem;
+}
+
+.box {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.box:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Solo los li que son hijos de ol*/
+ol > li {
+    margin-bottom: 1.5rem;
+}
+
+ol > li > strong {
+    color: #3273dc;
+    font-size: 1.05rem;
+}
