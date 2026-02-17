@@ -28,8 +28,49 @@
         <div id="inverso"></div>
     </section>
     <section>
-        <h2>6. Solución personalizada: Gato</h2>
-        <div id="gato"></div>
+                
+<h2>6. Solución personalizada:<a href = "https://leetcode.com/problems/design-parking-system/submissions/1922492589" target = "_blank_">Leetcode</a></h2>
+        <div id="gato">
+            <pre><code>/**
+ * @param {number} big
+ * @param {number} medium
+ * @param {number} small
+ */
+var ParkingSystem = function(big, medium, small) {
+    // Add number of each car
+    this.count = [big, medium, small];
+};
+
+/**
+ * @param {number} carType
+ * @return {boolean}
+ */
+ParkingSystem.prototype.addCar = function(carType) {
+    // Subtract from each carType
+    return this.count[carType - 1] --> 0;
+};
+
+/**
+ * Your ParkingSystem object will be instantiated and called as such:
+ * var obj = new ParkingSystem(big, medium, small)
+ * var param_1 = obj.addCar(carType)
+ */</code></pre>
+        </div>
+    </section>
+    <section>
+        <h2>7. Preguntas</h2>
+        <ol>
+            <li>¿Qué diferencias y semejanzas hay entre Java y JavaScript?</li>
+            <p>Es como comparar Ham y Hamster. Java tiene tipos estáticos, JS es dinámico. JS es lenguaje de scripting para sitios web, no requiere compilación, y es más para orientado a eventos. Java utiliza POO, es más para backend y es independiente. </p>
+            <li>¿Qué métodos tiene el objeto Date? (Menciona al menos 5*)</li>
+            <p>getTime(), getSeconds(), getHours(), getTimezoneOffset(), getUTCDate()</p>
+            <li>¿Qué métodos tienen los arreglos? (Menciona al menos 5*)</li>
+            <p>sort(), splice(), toString(), toSorted(), pop()</p>
+            <li>¿Cómo se declara una variable con alcance local dentro de una función?</li>
+            <p>let, var, cont son locales dentro de una función. var no es local dentro de un bloque. Si un variable no esta declarado dentro de una función y simplemente se asignan tiene alcance global. Modo estricto de JavaScript previene ese comportamiento. </p>
+            <li>¿Qué implicaciones tiene utilizar variables globales dentro de funciones?</li>
+            <p>Puede tener cambios no intencionales. Dificulta debuggear cuando algo se cambia de forma no intendida, riesgo con las colisiones de nombres.</p>
+        </ol>
     </section>
     <script src="../js/lab4.js"></script>
 </body>

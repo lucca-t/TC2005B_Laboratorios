@@ -20,15 +20,18 @@ tablaCuadradosCubos();
 // 2. Suma aleatoria
 function sumaAleatoria() {
     const cont = document.getElementById('suma');
+    
     cont.innerHTML = `<button id='btnSuma'>Nueva suma</button><div id='sumaRes'></div>`;
     document.getElementById('btnSuma').onclick = function() {
         let a = Math.floor(Math.random()*100);
         let b = Math.floor(Math.random()*100);
-        document.getElementById('sumaRes').innerHTML = `<form onsubmit='event.preventDefault(); verificarSuma(${a},${b},Date.now());'>
+        let start = Date.now();
+        document.getElementById('sumaRes').innerHTML = `<form onsubmit='event.preventDefault(); verificarSuma(${a},${b},${start});'>
             ¿Cuánto es ${a} + ${b}? <input type='number' id='respSuma' required>
             <button type='submit'>Verificar</button>
         </form><div id='sumaMsg'></div>`;
     };
+    
 }
 function verificarSuma(a, b, start) {
     let respuesta = Number(document.getElementById('respSuma').value);
