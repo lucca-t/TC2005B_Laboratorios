@@ -1,4 +1,4 @@
-// 1. Tabla de cuadrados y cubos
+    // 1. Tabla de cuadrados y cubos
 function tablaCuadradosCubos() {
     const cont = document.getElementById('tabla');
     cont.innerHTML = `<form onsubmit="event.preventDefault(); mostrarTabla();">

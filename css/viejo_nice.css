@@ -71,7 +71,7 @@ body {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
-/* Solo los li que son hijos de ol*/
+/* Solo los li que son hijos de */
 ol > li {
     margin-bottom: 1.5rem;
 }

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/lab6.css" />
+    <title>Lab 6: POE</title>
+  </head>
+  <body>
+    <article class="panel is-info">
+      <p class="panel-heading">Info</p>
+      
+      <a class="panel-block">
+        <span class="panel-icon">
+          <i class="fas fa-book" aria-hidden="true"></i>
+        </span>
+        <img src = "../media/matcha.png" style = "width:2rem;" >
+        Matcha - $20.00
+        <input type="number" class="input is-small cartItem ml-auto" min="0" value="0" id = "cart0">
+      </a>
+      <a class="panel-block">
+        <span class="panel-icon">
+          <i class="fas fa-book" aria-hidden="true"></i>
+        </span>
+        <img src = "../media/labubu.png" style = "width:2rem;">
+        Labubu - $50.00
+        <input type="number" class="input is-small cartItem ml-auto" min="0" value="0" id = "cart1">
+      </a>
+      <a class="panel-block">
+        <span class="panel-icon">
+          <i class="fas fa-book" aria-hidden="true"></i>
+        </span>
+        <img src = "../media/angela.jpg" style = "width:2rem;">
+        Women Race and Class by Angela Davis - $15.00
+        <input type="number" class="input is-small cartItem ml-auto" min="0" value="0" id = "cart2">
+      </a>
+      <button class = ""></button>
+      <script src = "../js/lab6.js"></script>
+    </article>
+
+
+    <input class="button" type="submit" value="Submit input" onClick = "sumItems()" />
+  </body>
+</html>
