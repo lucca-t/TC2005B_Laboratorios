@@ -7,10 +7,12 @@
     <title>Lab 6: POE</title>
   </head>
   <body>
-    <article class="panel is-info">
-      <p class="panel-heading">Info</p>
+    <h1 class = "title"> <a href = "../index.html">Home</a></h1>
+    <div class = "columns">
+    <article class="panel is-info column is-one-half">
+      <p class="panel-heading">Carrito Performativo</p>
       
-      <a class="panel-block">
+      <a class="panel-block" data-price="20.00">
         <span class="panel-icon">
           <i class="fas fa-book" aria-hidden="true"></i>
         </span>
@@ -18,7 +20,7 @@
         Matcha - $20.00
         <input type="number" class="input is-small cartItem ml-auto" min="0" value="0" id = "cart0">
       </a>
-      <a class="panel-block">
+      <a class="panel-block" data-price="50.00">
         <span class="panel-icon">
           <i class="fas fa-book" aria-hidden="true"></i>
         </span>
@@ -26,7 +28,7 @@
         Labubu - $50.00
         <input type="number" class="input is-small cartItem ml-auto" min="0" value="0" id = "cart1">
       </a>
-      <a class="panel-block">
+      <a class="panel-block" data-price="15.00">
         <span class="panel-icon">
           <i class="fas fa-book" aria-hidden="true"></i>
         </span>
@@ -34,11 +36,74 @@
         Women Race and Class by Angela Davis - $15.00
         <input type="number" class="input is-small cartItem ml-auto" min="0" value="0" id = "cart2">
       </a>
-      <button class = ""></button>
-      <script src = "../js/lab6.js"></script>
+  
     </article>
 
+      <article class="panel is-info total column is-one-third">
+        <p class="panel-heading">Total</p>
 
-    <input class="button" type="submit" value="Submit input" onClick = "sumItems()" />
+        <div class="panel-block">
+            Subtotal: <span id="subtotal">$0.00</span>
+        </div>
+        <div class="panel-block">
+            IVA (29%): <span id="IVA">$0.00</span>
+        </div>
+        <div class="panel-block">
+            Total: <span id="total">$0.00</span>
+        </div>
+      </article>
+    </div>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="title">Preguntas</h2>
+            <div class="box has-background-grey-darker">
+                <p class="subtitle is-6 has-text-white-ter"><em>💡 Haz clic en cada pregunta para ver la respuesta</em></p>
+                <ol>
+                    <li class="question-item" style="cursor: pointer; margin-bottom: 1rem;">
+                        <strong class="has-text-white">¿Por qué es una buena práctica usar JavaScript para validar los inputs de las formas antes de enviarlos al servidor?</strong>
+                        <span class="toggle-icon has-text-info"> ▼</span>
+                    </li>
+                    <p class="answer" style="display: none; margin-left: 1.5rem; margin-bottom: 1.5rem;">Para mejorar la experiencia del usuario. Le da retroalimentación inmediata sobre errores sin tener que recargar la página, haciendo el proceso más rápido y amigable. También reduce la carga innecesaria en el servidor.</p>
+                    
+                    <li class="question-item" style="cursor: pointer; margin-bottom: 1rem;">
+                        <strong class="has-text-white">¿Cómo puedes saltarte la seguridad de validaciones hechas con JavaScript?</strong>
+                        <span class="toggle-icon has-text-info"> ▼</span>
+                    </li>
+                    <p class="answer" style="display: none; margin-left: 1.5rem; margin-bottom: 1.5rem;">
+                        Se puede desactivar JavaScript en el navegador, usar las herramientas de desarrollador para modificar el código, o enviar la información directamente al servidor con herramientas para ignorar la página web por completo.</p>
+                    
+                    <li class="question-item" style="cursor: pointer; margin-bottom: 1rem;">
+                        <strong class="has-text-white">Si te puedes saltar la seguridad de JavaScript, entonces ¿por qué es una buena práctica?</strong>
+                        <span class="toggle-icon has-text-info"> ▼</span>
+                    </li>
+                    <p class="answer" style="display: none; margin-left: 1.5rem; margin-bottom: 1.5rem;">Porque la validación de JavaScript es para mejorar la usabilidad. La buena práctica es tener dos validaciones: una en el cliente para el usuario, y otra en el servidor para garantizar la integridad de los datos.</p>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class = "box">
+              <h2 class = "title">Fuentes</h2>
+                <ul>
+                <li><a href="https://www.w3schools.com/TAGS/att_data-.asp" target="_blank">W3Schools - Data Attributes</a></li>
+                <li><a href="https://www.w3schools.com/howto/howto_js_format_number_dec.asp" target="_blank">W3Schools - Format Numbers with Decimals</a></li>
+                <li><a href="https://www.w3schools.com/js/js_htmldom_html.asp" target="_blank">W3Schools - HTML DOM</a></li>
+                <li><a href="https://www.w3schools.com/TAGS/tryit.asp?filename=tryhtml5_global_data" target="_blank">W3Schools - HTML5 Data Attributes Example</a></li>
+                <li><a href="https://www.w3schools.com/js/js_htmldom_eventlistener.asp" target="_blank">W3Schools - Event Listeners</a></li>
+                <li><a href="https://www.w3schools.com/html/html5_semantic_elements.asp" target="_blank">W3Schools - Semantic HTML5 Elements</a></li>
+                <li><a href="https://www.w3schools.com/jsref/dom_obj_event.asp" target="_blank">W3Schools - DOM Event Object</a></li>
+                <li><a href="https://www.geeksforgeeks.org/javascript/how-to-get-the-value-of-text-input-field-using-javascript/" target="_blank">GeeksforGeeks - Get Text Input Value</a></li>
+                <li><a href="https://www.w3schools.com/js/tryit.asp?filename=tryjs_addeventlistener_displaydate" target="_blank">W3Schools - addEventListener Example</a></li>
+                <li><a href="https://www.w3schools.com/jsref/event_onclick.asp" target="_blank">W3Schools - onClick Event</a></li>
+                <li><a href="https://bulma.io/documentation/elements/block/" target="_blank">Bulma - Block Element</a></li>
+                </ul>
+            </div>
+          </div>
+        </section>
+<script src = "../js/lab6.js"></script>
+    <!--<input class="button" type="submit" value="Submit input" onClick = "sumItems()" />-->
   </body>
 </html>

@@ -4,3 +4,13 @@
     margin-left:auto;
     width: 4rem;
 }
+
+.is-info {
+    margin-top: 5rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+html {
+    font-size: x-large;
+}
