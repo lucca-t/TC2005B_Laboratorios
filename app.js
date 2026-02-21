@@ -71,7 +71,7 @@ const server = http.createServer( (request, response) => {
 console.log(calcularPromedio(numslist));
 
 console.log("Escribiendo texto");
-escribirTexto("Este es el string que se esta escribiendo.");
+escribirTexto("Este es el string que se esta escribiendo.");gi
 
 let coins = [1,2,5];
 let amount = 11;
