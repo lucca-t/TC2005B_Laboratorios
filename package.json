@@ -1,0 +1,27 @@
+{
+  "name": "tc2005b_laboratorios",
+  "version": "1.0.0",
+  "description": "Laboratoris de apoyo de TC2005B con tematica de nada",
+  "homepage": "https://github.com/lucca-t/TC2005B_Laboratorios#readme",
+  "bugs": {
+    "url": "https://github.com/lucca-t/TC2005B_Laboratorios/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucca-t/TC2005B_Laboratorios.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
