@@ -1,14 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-//Middleware - se ejecuta en cada petición
-app.use((request, response, next) => {
-    console.log('Middleware! Petición recibida');
-    next(); //Le permite a la petición avanzar hacia el siguiente middleware
-});
 
-// Body parser - para procesar datos de formularios
-app.use(bodyParser.urlencoded({extended: false}));
 
 // Ruta principal
 app.use('/', (request, response, next) => {
@@ -49,6 +42,25 @@ app.get('/form', (request, response, next) => {
         <a href="/">Regresar</a>
     `);
 });
+
+//Middleware
+router.use((request, response, next) => {
+    console.log('Middleware!');
+    next(); //Le permite a la petición avanzar hacia el siguiente middleware
+});
+
+router.get('/new', (request, response, next) => {
+    response.send(html_header + html_form + html_footer);
+});
+
+router.post('/new', (request, response, next) => {
+    console.log(request.body);
+    personajes.push(request.body);
+    response.send(html_header + html_form + html_footer);
+})
+
+
+
 
 // Ruta /submit-form - procesar POST
 app.post('/submit-form', (request, response, next) => {
