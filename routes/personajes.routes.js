@@ -3,31 +3,31 @@ const router = express.Router();
 
 
 
-// Ruta principal
-app.use('/', (request, response, next) => {
+// Ruta principal - usar GET en vez de USE para que no atrape todas las rutas
+router.get('/', (request, response, next) => {
     console.log('Ruta principal /');
     response.send(`
         <h1>¡Hola desde Express!</h1>
         <ul>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
-            <li><a href="/form">Formulario</a></li>
+            <li><a href="/personajes/about">About</a></li>
+            <li><a href="/personajes/contact">Contact</a></li>
+            <li><a href="/personajes/form">Formulario</a></li>
         </ul>
     `);
 });
 
 // Ruta /about
-app.use('/about', (request, response, next) => {
-    response.send('<h1>Página About</h1><a href="/">Regresar</a>');
+router.get('/about', (request, response, next) => {
+    response.send('<h1>Página About</h1><a href="/personajes">Regresar</a>');
 });
 
 // Ruta /contact
-app.use('/contact', (request, response, next) => {
-    response.send('<h1>Página Contact</h1><a href="/">Regresar</a>');
+router.get('/contact', (request, response, next) => {
+    response.send('<h1>Página Contact</h1><a href="/personajes">Regresar</a>');
 });
 
 // Ruta /form - mostrar formulario
-app.get('/form', (request, response, next) => {
+router.get('/form', (request, response, next) => {
     response.send(`
         <h1>Formulario de Prueba</h1>
         <form action="/submit-form" method="POST">
@@ -39,7 +39,7 @@ app.get('/form', (request, response, next) => {
             
             <button type="submit">Enviar</button>
         </form>
-        <a href="/">Regresar</a>
+        <a href="/personajes">Regresar</a>
     `);
 });
 
@@ -63,13 +63,13 @@ router.post('/new', (request, response, next) => {
 
 
 // Ruta /submit-form - procesar POST
-app.post('/submit-form', (request, response, next) => {
+router.post('/submit-form', (request, response, next) => {
     console.log('Datos recibidos:', request.body);
     response.send(`
         <h1>Datos recibidos:</h1>
         <p><strong>Nombre:</strong> ${request.body.nombre}</p>
         <p><strong>Mensaje:</strong> ${request.body.mensaje}</p>
-        <a href="/">Regresar</a>
+        <a href="/personajes">Regresar</a>
     `);
 });
 
