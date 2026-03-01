@@ -1,81 +1,39 @@
-console.log("Hola desde node");
-const fs = require("fs");
+const express = require('express');
+const app = express();
 
-fs.writeFileSync("hola.txt", "hola desde node");
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: false }));
 
-const http = require('http');
+const rutas_personajes = require('./routes/personajes.routes');
+const rutas_quotes = require('./routes/quotes.routes');
 
-function calcularPromedio(nums) {
-    let sum = 0;
-    for (let i = 0; i < nums.length; i++) {
-        sum += nums[i];
-    } 
-    let avg = sum/nums.length;
-    return avg;
-}
+app.use('/personajes', rutas_personajes);
+app.use('/quotes', rutas_quotes);
 
-let numslist = [3,5,1,2,4,5,6,7];
-
-function escribirTexto(texto) {
-
-    fs.writeFileSync("escribe.txt", texto);
-    console.log("Escribi texto");
-}
-
-function coinChange(coins, amount) {
-    /**
- * @param {number[]} coins
- * @param {number} amount
- * @return {number}
- */
-    // bottom up dp
-    // amount + 1 indica un valor no posible
-    const dp = new Array(amount + 1).fill(amount + 1);
-    dp[0] = 0;
-
-    for (let i = 1; i <= amount; i++) { // Checar cada cantidad de 1 al amt
-        for (const coin of coins) { // Usar cada moneda
-            if (i - coin >= 0) {
-                dp[i] = Math.min(dp[i], 1 + dp[i - coin]); // 
-            }
-        }
-    }
-    // Regresa la cantidad minima de monedas, o - 1 si no es posible 
-    return dp[amount] > amount ? -1 : dp[amount];
-
-}
-
-// Muestra mi index.html
-const server = http.createServer( (request, response) => {
-    //console.log(request);
-    //console.log(request);
-    //console.log(request.url);
-    console.log(request.url);
-    //response.end();
-
-    // Para no copiar y pegar el index.html
-    fs.readFile('./index.html', function (err, html) {
-        if (err) {
-            throw err; 
-        }     
-        
-        response.setHeader('Content-Type', 'text/html');
-        response.write(html);
-        response.end(); 
-    });  
+app.get('/', (request, response, next) => {
+    response.redirect('/personajes');
 });
 
-console.log(calcularPromedio(numslist));
+app.use((request, response, next) => {
+    response.status(404).send(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="utf-8">
+            <title>404</title>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+        </head>
+        <body>
+        <section class="section">
+            <div class="container has-text-centered">
+                <h1 class="title">404 - Not Found</h1>
+                <p>The route you requested does not exist.</p>
+                <a class="button is-link mt-4" href="/personajes">Go Home</a>
+            </div>
+        </section>
+        </body>
+        </html>
+    `);
+});
 
-console.log("Escribiendo texto");
-escribirTexto("Este es el string que se esta escribiendo.");
-
-let coins = [1,2,5];
-let amount = 11;
-let change = coinChange(coins,amount);
-
-console.log(`Coins list = ${coins}, Amount = ${amount}, Min Coins = ${change}`);
-
-server.listen(3000);
-
-
+app.listen(3000);
