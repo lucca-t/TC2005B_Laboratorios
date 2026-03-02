@@ -34,101 +34,19 @@ const personajes = [
     },
 ];
 
-const html_header = `
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="referrer" content="no-referrer">
-    <title>Succession</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
-</head>
-<body>
-<section class="section">
-    <div class="container">
-        <h1 class="title">
-            <a href="/personajes" class="has-text-white">Succession</a>
-        </h1>
-        <p class="subtitle">HBO's Roy family drama</p>
-`;
-
-const html_footer = `
-    </div>
-</section>
-</body>
-</html>
-`;
-
-const html_form = `
-    <form action="/personajes/new" method="POST">
-        <div class="field">
-            <label for="nombre" class="label">Name</label>
-            <div class="control">
-                <input id="nombre" name="nombre" class="input" type="text" placeholder="e.g. Tom Wambsgans">
-            </div>
-        </div>
-        <div class="field">
-            <label for="descripcion" class="label">Description</label>
-            <div class="control">
-                <input id="descripcion" name="descripcion" class="input" type="text" placeholder="e.g. Shiv's husband and Waystar executive...">
-            </div>
-        </div>
-        <div class="field">
-            <label for="tipo" class="label">Role</label>
-            <div class="control">
-                <input id="tipo" name="tipo" class="input" type="text" placeholder="e.g. Executive">
-            </div>
-        </div>
-        <div class="field">
-            <label for="imagen" class="label">Image URL</label>
-            <div class="control">
-                <input id="imagen" name="imagen" class="input" type="text" placeholder="https://...">
-            </div>
-        </div>
-        <input class="button is-primary" type="submit" value="Save Character">
-    </form>
-`;
-
 router.get('/new', (request, response, next) => {
-    response.send(html_header + html_form + html_footer);
+    response.render('new');
 });
 
 router.post('/new', (request, response, next) => {
     console.log(request.body);
     personajes.push(request.body);
-    response.send(html_header + html_form + html_footer);
+    response.redirect('/personajes');
 });
 
 // Index
-router.use((request, response, next) => {
-    let html_index = `
-        <a class="button is-primary" href="/personajes/new">New Character</a>
-        <a class="button is-link" href="/quotes">Quotes</a>
-        <div class="columns is-multiline mt-3">
-    `;
-
-    for (let personaje of personajes) {
-        html_index += `
-            <div class="column is-one-third">
-                <div class="card">
-                    <div class="card-image">
-                        <figure class="image is-4by3">
-                            <img src="${personaje.imagen}" alt="${personaje.nombre}">
-                        </figure>
-                    </div>
-                    <div class="card-content">
-                        <p class="title is-5">${personaje.nombre}</p>
-                        <p class="subtitle is-6">${personaje.tipo}</p>
-                        <p>${personaje.descripcion}</p>
-                    </div>
-                </div>
-            </div>
-        `;
-    }
-
-    html_index += `</div>`;
-    response.send(html_header + html_index + html_footer);
+router.get('/', (request, response, next) => {
+    response.render('personajes', { personajes });
 });
 
 module.exports = router;

@@ -1,0 +1,28 @@
+<%- include('includes/_head', { title: 'Succession' }) %>
+<%- include('includes/_nav', { subtitle: "HBO's Roy family drama" }) %>
+
+<a class="button is-primary" href="/personajes/new">New Character</a>
+<a class="button is-link" href="/quotes">Quotes</a>
+<a class="button is-link" href="/quotes/about">About</a>
+
+
+<div class="columns is-multiline mt-3">
+    <% for (let personaje of personajes) { %>
+        <div class="column is-one-third">
+            <div class="card">
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img src="<%= personaje.imagen %>" alt="<%= personaje.nombre %>">
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <p class="title is-5"><%= personaje.nombre %></p>
+                    <p class="subtitle is-6"><%= personaje.tipo %></p>
+                    <p><%= personaje.descripcion %></p>
+                </div>
+            </div>
+        </div>
+    <% } %>
+</div>
+
+<%- include('includes/_footer') %>

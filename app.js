@@ -1,6 +1,12 @@
 const express = require('express');
 const app = express();
 
+const path = require("path");
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.set('view engine', 'ejs');
+app.set('views', 'views');
+
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -15,25 +21,7 @@ app.get('/', (request, response, next) => {
 });
 
 app.use((request, response, next) => {
-    response.status(404).send(`
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <meta charset="utf-8">
-            <title>404</title>
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
-        </head>
-        <body>
-        <section class="section">
-            <div class="container has-text-centered">
-                <h1 class="title">404 - Not Found</h1>
-                <p>The route you requested does not exist.</p>
-                <a class="button is-link mt-4" href="/personajes">Go Home</a>
-            </div>
-        </section>
-        </body>
-        </html>
-    `);
+    response.status(404).render('404');
 });
 
 app.listen(3000);

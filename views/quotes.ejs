@@ -1,0 +1,16 @@
+<%- include('includes/_head', { title: 'Succession - Quotes' }) %>
+<%- include('includes/_nav', { subtitle: 'Memorable Quotes' }) %>
+
+<a class="button is-link" href="/personajes">Back to Characters</a>
+<br><br>
+
+<% for (let q of quotes) { %>
+    <article class="message is-dark mb-4">
+        <div class="message-body">
+            <p class="is-italic">"<%= q.text %>"</p>
+            <p class="has-text-weight-bold mt-2">- <%= q.character %></p>
+        </div>
+    </article>
+<% } %>
+
+<%- include('includes/_footer') %>
