@@ -3,4 +3,9 @@
         <h1 class="title">
             <a href="/personajes" class="has-text-white">Succession</a>
         </h1>
+        <p class="subtitle">
+            <% if (username != '') { %> 
+              Hola <strong><%= username %></strong>!
+            <% } %>
+        </p>        
         <p class="subtitle"><%= subtitle %></p>

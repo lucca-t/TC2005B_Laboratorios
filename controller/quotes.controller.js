@@ -2,7 +2,7 @@ const Quotes = require('../models/quotes.model');
 
 exports.get_quotes = (req, res, next) => {
     const quotes = Quotes.fetchAll();
-    res.render('quotes', {quotes});
+    res.render('quotes', { quotes });
 };
 
 exports.get_about = (req, res, next) => {
