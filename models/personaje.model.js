@@ -1,6 +1,3 @@
-
-
-
 const personajes = [
     {
         nombre: "Logan Roy",
@@ -33,6 +30,7 @@ const personajes = [
         imagen: "https://static.wikia.nocookie.net/succession/images/5/5e/GregHirschCharacterInfobox.png/revision/latest/scale-to-width-down/1000?cb=20230622215700",
     },
 ];
+
 module.exports = class Modelo {
 
     //Constructor de la clase. Sirve para crear un nuevo objeto, y en él se definen las propiedades del modelo
