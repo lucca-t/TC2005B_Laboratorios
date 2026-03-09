@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `lab17` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `lab17`;
 -- MySQL dump 10.13  Distrib 8.0.44, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: lab17
@@ -23,7 +21,7 @@ SET @@SESSION.SQL_LOG_BIN= 0;
 -- GTID state at the beginning of the backup 
 --
 
-SET @@GLOBAL.GTID_PURGED=/*!80000 '+'*/ 'f3eccb67-c025-11f0-98d7-00410e2c03ac:1-177';
+SET @@GLOBAL.GTID_PURGED=/*!80000 '+'*/ 'f3eccb67-c025-11f0-98d7-00410e2c03ac:1-179';
 
 --
 -- Table structure for table `personajes`
@@ -42,7 +40,7 @@ CREATE TABLE `personajes` (
   PRIMARY KEY (`id`),
   KEY `tipo_id` (`tipo_id`),
   CONSTRAINT `personajes_ibfk_1` FOREIGN KEY (`tipo_id`) REFERENCES `tipo` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -51,6 +49,7 @@ CREATE TABLE `personajes` (
 
 LOCK TABLES `personajes` WRITE;
 /*!40000 ALTER TABLE `personajes` DISABLE KEYS */;
+INSERT INTO `personajes` VALUES (1,'Logan Roy','Founder and CEO of Waystar Royco, a ruthless media mogul who rules his family and empire with an iron fist. His manipulative nature and refusal to cede control drive the central conflict of the series.',1,'https://static.wikia.nocookie.net/succession/images/f/f2/LoganRoyCharacterInfobox.jpg/revision/latest/scale-to-width-down/1000?cb=20230613094149','2026-03-05 18:18:37'),(2,'Kendall Roy','Logan\'s eldest son and perpetual heir apparent, caught between ambition and insecurity. He oscillates between attempting hostile takeovers of Waystar and crawling back to his father\'s approval.',2,'https://static.wikia.nocookie.net/succession/images/0/09/KendallRoyCharacterInfobox.jpg/revision/latest/scale-to-width-down/1000?cb=20230613093831','2026-03-05 18:18:37'),(3,'Roman Roy','The youngest Roy son, hiding sharp instincts behind a wall of irreverent humor and self-sabotage. He craves his father\'s love more than the throne but would never admit it.',3,'https://static.wikia.nocookie.net/succession/images/e/e8/RomanRoyCharacterInfobox.png/revision/latest/scale-to-width-down/1000?cb=20230617051956','2026-03-05 18:18:37'),(4,'Siobhan \'Shiv\' Roy','Logan\'s only daughter, a political operative who pivots to the family business believing she can outmaneuver her brothers. Her confidence often blinds her to how little power she actually holds.',4,'https://static.wikia.nocookie.net/succession/images/8/85/SiobhanRoyCharacterInfobox.jpg/revision/latest/scale-to-width-down/1000?cb=20230614211118','2026-03-05 18:18:37'),(5,'Greg Hirsch','Logan\'s grand-nephew, a bumbling outsider who stumbles into the Roy orbit and quietly accumulates leverage. His apparent naivete masks a surprising talent for self-preservation.',3,'https://static.wikia.nocookie.net/succession/images/5/5e/GregHirschCharacterInfobox.png/revision/latest/scale-to-width-down/1000?cb=20230622215700','2026-03-05 18:18:37');
 /*!40000 ALTER TABLE `personajes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -66,7 +65,7 @@ CREATE TABLE `quotes` (
   `character` varchar(100) NOT NULL,
   `text` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -75,6 +74,7 @@ CREATE TABLE `quotes` (
 
 LOCK TABLES `quotes` WRITE;
 /*!40000 ALTER TABLE `quotes` DISABLE KEYS */;
+INSERT INTO `quotes` VALUES (1,'Logan Roy','I love you but you are not serious people.'),(2,'Kendall Roy','I am the eldest boy.'),(3,'Roman Roy','Everything is always about everything, all the time.'),(4,'Siobhan Roy','I don\'t get embarrassed.'),(5,'Greg Hirsch','You can\'t make a Tomelette without breaking some Greggs.'),(6,'Logan Roy','What you\'re feeling right now, that\'s the pain of losing.'),(7,'Kendall Roy','We are nothing.');
 /*!40000 ALTER TABLE `quotes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -112,4 +112,4 @@ SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-03-05 12:13:46
+-- Dump completed on 2026-03-05 12:22:08
