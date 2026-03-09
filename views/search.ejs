@@ -1,0 +1,31 @@
+<%- include('includes/_head', { title: 'Search Results' }) %>
+<%- include('includes/_nav', { subtitle: 'Search Results' }) %>
+
+<a class="button is-link mb-4" href="/personajes">Back to Characters</a>
+
+<p class="mb-4">Results for: <strong><%= query %></strong></p>
+
+<% if (personajes.length === 0) { %>
+    <p>No characters found.</p>
+<% } else { %>
+    <div class="columns is-multiline mt-3">
+        <% for (let personaje of personajes) { %>
+            <div class="column is-one-third">
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img src="<%= personaje.imagen %>" alt="<%= personaje.nombre %>">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <p class="title is-5"><%= personaje.nombre %></p>
+                        <p class="subtitle is-6"><%= personaje.tipo %></p>
+                        <p><%= personaje.descripcion %></p>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+    </div>
+<% } %>
+
+<%- include('includes/_footer') %>
