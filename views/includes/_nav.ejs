@@ -9,3 +9,13 @@
             <% } %>
         </p>        
         <p class="subtitle"><%= subtitle %></p>
+        <form action="/personajes/search" method="GET" class="mt-2">
+            <div class="field has-addons">
+                <div class="control">
+                    <input class="input is-small" type="text" name="q" placeholder="Search character...">
+                </div>
+                <div class="control">
+                    <button class="button is-small is-link" type="submit">Search</button>
+                </div>
+            </div>
+        </form>
