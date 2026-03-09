@@ -14,7 +14,7 @@ module.exports = class Modelo {
     //Este método servirá para guardar de manera persistente el nuevo objeto en la base de datos.
     save() {
         return db.execute(
-            'INSERT INTO personajes (nombre, descripcion, tipo_id, imagen) VALUES (?, ?, (SELECT id FROM tipo WHERE tipo = ?), ?)',
+            'INSERT INTO personajes (nombre, descripcion, tipo_id, imagen) VALUES (?, ?, ?, ?)',
             [this.nombre, this.descripcion, this.tipo, this.imagen]
         );
     }
