@@ -1,11 +1,18 @@
 <section class="section">
     <div class="container">
-        <h1 class="title">
-            <a href="/personajes" class="has-text-white">Succession</a>
-        </h1>
-        <p class="subtitle">
-            <% if (username != '') { %> 
-              Hola <strong><%= username %></strong>!
-            <% } %>
-        </p>        
-        <p class="subtitle"><%= subtitle %></p>
+        <div class="is-flex is-justify-content-space-between is-align-items-center">
+            <div>
+                <h1 class="title">
+                    <a href="/personajes" class="has-text-white">Succession</a>
+                </h1>
+                <p class="subtitle"><%= subtitle %></p>
+            </div>
+            <div>
+                <% if (username != '') { %>
+                  <span class="mr-3">Hola <strong><%= username %></strong>!</span>
+                  <a class="button is-light is-small" href="/users/logout">Log Out</a>
+                <% } else { %>
+                  <a class="button is-light is-small" href="/users/login">Log In</a>
+                <% } %>
+            </div>
+        </div>
