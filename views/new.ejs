@@ -4,6 +4,7 @@
 <a class="button is-link mb-4" href="/personajes">Back to Characters</a>
 
 <form action="/personajes/new" method="POST">
+    <input type = "hidden" name = "_csrf" value = "<%= csrfToken %>" >
     <div class="field">
         <label for="nombre" class="label">Name</label>
         <div class="control">

@@ -22,6 +22,15 @@ app.use((req, res, next) => {
     next();
 });
 
+const csrf = require('csurf');
+const csrfProtection = csrf();
+app.use(csrfProtection); 
+
+app.use((request, response, next) => {
+    response.locals.csrfToken = request.csrfToken();
+    next();
+});
+
 
 const rutas_personajes = require('./routes/personajes.routes');
 const rutas_quotes = require('./routes/quotes.routes');
