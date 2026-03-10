@@ -7,6 +7,10 @@
     <p class="mb-4">Welcome back! Your last login was: <strong><%= lastVisit %></strong></p>
 <% } %>
 
+<% if (error) { %>
+    <div class = "notification is-danger"><%= error %></div>
+<% } %>
+
 <form action="/users/login" method="POST">
     <div class="field">
         <label for="username" class="label">Name</label>

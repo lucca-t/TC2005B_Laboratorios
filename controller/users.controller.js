@@ -4,6 +4,10 @@ const bcrypt = require('bcryptjs');
 exports.get_login = (request, response, next) => {
     const cookieHeader = request.get('Cookie');
     let lastVisit = null;
+
+    const error = request.session.error || '';
+    request.session.error = '';
+
     if (cookieHeader) {
         const match = cookieHeader.split(';').map(c => c.trim()).find(c => c.startsWith('lastVisit='));
         if (match) lastVisit = decodeURIComponent(match.split('=').slice(1).join('='));
@@ -11,6 +15,7 @@ exports.get_login = (request, response, next) => {
     response.render('login', {
         username: request.session.username || '',
         lastVisit: lastVisit,
+        error: error,
     });
 };
 
@@ -64,7 +69,14 @@ exports.post_signup = (request, response, next) => {
     if (request.body.password != request.body.password_confirm) {
         request.session.error = 'Passwords dont match';
         return response.redirect('/users/signup');
-    } else {
+    }
+
+    User.fetchOne(request.body.username).then(([rows, fieldData]) => {
+        if (rows.length > 0) {
+            request.session.error = 'This username already exists';
+            return response.redirect('/users/signup');
+        }
+
         const user = new User(
             request.body.username, request.body.nombre, request.body.password, request.body.correo);
         user.save().then(() => {
@@ -73,5 +85,8 @@ exports.post_signup = (request, response, next) => {
             console.log(error);
             next(error);
         });
-    }
+    }).catch((error) => {
+        console.log(error);
+        next(error);
+    });
 };
