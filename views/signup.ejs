@@ -1,0 +1,49 @@
+<%- include('includes/_head', { title: 'Sign Up' }) %>
+<%- include('includes/_nav', { subtitle: 'to a new Account' }) %>
+
+    <a class="button is-link mb-4" href="/personajes">Back to Characters</a>
+
+    <% if (error) { %>
+        <div class="notification is-danger"><%= error %></div>
+    <% } %>
+
+    <form action="/users/signup" method="POST">
+        <div class="field">
+            <label for="username" class="label">Name</label>
+            <div class="control">
+                <input id="username" name="username" class="input" type="text" placeholder="e.g oompalucca" required>
+            </div>
+        </div>
+
+        <div class="field">
+            <label for="nombre" class="label">Nombre</label>
+            <div class="control">
+                <input id="nombre" name="nombre" class="input" type="text" placeholder="e.g Lucca" required>
+            </div>
+        </div>
+
+        <div class="field">
+            <label for="correo" class="label">Correo</label>
+            <div class="control">
+                <input id="correo" name="correo" class="input" type="email" placeholder="e.g oompalucca@gmail.com" required>
+            </div>
+        </div>
+
+        <div class="">
+            <label for="password" class="label">Password</label>
+            <div class="control">
+                <input id="password" name="password" class="input" type="password" placeholder="e.g. Password" required>
+            </div>
+        </div>
+
+        <div class="field">
+            <label for="password_confirm" class="label">Confirmar Password</label>
+            <div class="control">
+                <input id="password_confirm" name="password_confirm" class="input" type="password" required>
+            </div>
+        </div>
+
+        <input class="button is-primary" type="submit" value="Log In">
+    </form>
+
+<%- include('includes/_footer') %>

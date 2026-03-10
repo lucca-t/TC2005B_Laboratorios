@@ -14,7 +14,6 @@ app.use(session({
     saveUninitialized: false, //Asegura que no se guarde una sesión para una petición que no lo necesita
 }));
 
-
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -22,6 +21,7 @@ app.use((req, res, next) => {
     res.locals.username = req.session.username || '';
     next();
 });
+
 
 const rutas_personajes = require('./routes/personajes.routes');
 const rutas_quotes = require('./routes/quotes.routes');
