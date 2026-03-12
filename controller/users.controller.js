@@ -29,8 +29,14 @@ exports.post_login = (request, response, next) => {
                     response.setHeader('Set-Cookie', `lastVisit=${encodeURIComponent(now)}; HttpOnly`);
                     request.session.isLoggedIn = true;
                     request.session.username = request.body.username;
-                    return request.session.save(() => {
-                        return response.redirect('/personajes');
+                    User.getPermisos(request.body.username).then(([permisos]) => {
+                        request.session.permisos = permisos.map(p => p.nombre_privilegio);
+                        return request.session.save(() => {
+                            return response.redirect('/personajes');
+                        });
+                    }).catch((error) => {
+                        console.log(error);
+                        next(error);
                     });
                 } else {
                     request.session.error = "Usuario y/o contraseña no coinciden."

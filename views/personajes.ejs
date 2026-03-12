@@ -1,7 +1,12 @@
 <%- include('includes/_head', { title: 'Succession' }) %>
 <%- include('includes/_nav', { subtitle: "HBO's Roy family drama" }) %>
 
+<% if (error) { %>
+<div class="notification is-danger"><%= error %></div>
+<% } %>
+<% if (permisos.includes('crear_personajes')) { %>
 <a class="button is-primary" href="/personajes/new">New Character</a>
+<% } %>
 <a class="button is-link" href="/quotes">Quotes</a>
 <a class="button is-link" href="/quotes/about">About</a>
 
@@ -19,7 +24,9 @@
                     <p class="title is-5"><%= personaje.nombre %></p>
                     <p class="subtitle is-6"><%= personaje.tipo %></p>
                     <p><%= personaje.descripcion %></p>
+                    <% if (permisos.includes('crear_personajes')) { %>
                     <a class="button is-warning is-small mt-2" href="/personajes/<%= personaje.id %>/edit">Edit</a>
+                    <% } %>
                 </div>
             </div>
         </div>

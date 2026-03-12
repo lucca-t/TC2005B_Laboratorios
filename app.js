@@ -19,6 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use((req, res, next) => {
     res.locals.username = req.session.username || '';
+    res.locals.permisos = req.session.permisos || [];
     next();
 });
 

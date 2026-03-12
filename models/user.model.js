@@ -24,4 +24,15 @@ module.exports = class User {
         return db.execute("SELECT * FROM usuarios WHERE username = ?", [username]);
     }
 
+    static getPermisos(username) {
+        return db.execute(
+            `SELECT DISTINCT pr.nombre_privilegio
+             FROM tiene t
+             JOIN posee p ON t.id_rol = p.id_rol
+             JOIN privilegios pr ON p.id_privilegio = pr.id
+             WHERE t.id_usuario = ?`,
+            [username]
+        );
+    }
+
 }

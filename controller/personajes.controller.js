@@ -81,8 +81,10 @@ exports.get_old = (req, res, next) => {
 
 exports.get_list = async (req, res, next) => {
     try {
+        const error = req.session.error || '';
+        req.session.error = '';
         const [personajes] = await Personaje.fetchAll();
-        res.render('personajes', { personajes });
+        res.render('personajes', { personajes, error });
     } catch (err) {
         console.error(err);
         res.status(500).send('Error fetching personajes');
