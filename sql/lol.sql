@@ -23,7 +23,7 @@ SET @@SESSION.SQL_LOG_BIN= 0;
 -- GTID state at the beginning of the backup 
 --
 
-SET @@GLOBAL.GTID_PURGED=/*!80000 '+'*/ 'f3eccb67-c025-11f0-98d7-00410e2c03ac:1-194';
+SET @@GLOBAL.GTID_PURGED=/*!80000 '+'*/ 'f3eccb67-c025-11f0-98d7-00410e2c03ac:1-200';
 
 --
 -- Table structure for table `personajes`
@@ -79,6 +79,7 @@ CREATE TABLE `posee` (
 
 LOCK TABLES `posee` WRITE;
 /*!40000 ALTER TABLE `posee` DISABLE KEYS */;
+INSERT INTO `posee` VALUES (1,1,'2026-03-12 06:00:22'),(2,1,'2026-03-12 06:00:22'),(2,2,'2026-03-12 06:00:22');
 /*!40000 ALTER TABLE `posee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -94,7 +95,7 @@ CREATE TABLE `privilegios` (
   `nombre_privilegio` varchar(100) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,6 +104,7 @@ CREATE TABLE `privilegios` (
 
 LOCK TABLES `privilegios` WRITE;
 /*!40000 ALTER TABLE `privilegios` DISABLE KEYS */;
+INSERT INTO `privilegios` VALUES (1,'ver_personajes','2026-03-12 05:58:25'),(2,'crear_personajes','2026-03-12 05:58:25');
 /*!40000 ALTER TABLE `privilegios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -143,7 +145,7 @@ CREATE TABLE `roles` (
   `nombre_rol` varchar(50) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -152,6 +154,7 @@ CREATE TABLE `roles` (
 
 LOCK TABLES `roles` WRITE;
 /*!40000 ALTER TABLE `roles` DISABLE KEYS */;
+INSERT INTO `roles` VALUES (1,'invocador','2026-03-12 05:58:19'),(2,'administrador','2026-03-12 05:58:19');
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -179,6 +182,7 @@ CREATE TABLE `tiene` (
 
 LOCK TABLES `tiene` WRITE;
 /*!40000 ALTER TABLE `tiene` DISABLE KEYS */;
+INSERT INTO `tiene` VALUES ('lalo',1,'2026-03-12 06:03:15'),('oompalucca',2,'2026-03-12 06:00:28');
 /*!40000 ALTER TABLE `tiene` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -229,7 +233,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES ('oompalucca','Lucca','$2b$12$vCJt3oWHUoN.UrIizmDu0uapMar4xa8UbNfIiuvhUr5o6ISGXqw5C','oompalucca@gmail.com','2026-03-10 04:06:23');
+INSERT INTO `usuarios` VALUES ('lalo','Eduardo Juárez','$2b$12$UJ2byG01W5wdq0DZscYtquEzNN/t9DeMJUjb/B85g3UMi92/za5ty','lalo@aol.com','2026-03-12 06:02:55'),('oompalucca','Lucca','$2b$12$vCJt3oWHUoN.UrIizmDu0uapMar4xa8UbNfIiuvhUr5o6ISGXqw5C','oompalucca@gmail.com','2026-03-10 04:06:23');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
@@ -243,4 +247,4 @@ SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-03-11 22:21:16
+-- Dump completed on 2026-03-12  0:04:54
