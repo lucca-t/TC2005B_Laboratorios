@@ -17,6 +17,32 @@ app.use(session({
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 
+const multer = require('multer');
+const fileStorage = multer.diskStorage({
+    destination: (request, file, callback) => {
+        callback(null, 'uploads');
+    },
+    filename: (request, file, callback) => {
+        const safeName = file.originalname.replace(/[^a-zA-Z0-9.\-_]/g, '_');
+        callback(null, `${Date.now()}-${safeName}`);
+    },
+});
+
+const fileFilter = (request, file, callback) => {
+    if (
+        file.mimetype === 'image/png' ||
+        file.mimetype === 'image/jpg' ||
+        file.mimetype === 'image/jpeg'
+    ) {
+        callback(null, true);
+    } else {
+        callback(null, false);
+    }
+};
+
+app.use(multer({ storage: fileStorage, fileFilter: fileFilter }).single('archivo'));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 app.use((req, res, next) => {
     res.locals.username = req.session.username || '';
     res.locals.permisos = req.session.permisos || [];

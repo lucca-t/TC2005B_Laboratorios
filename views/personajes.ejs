@@ -17,7 +17,9 @@
             <div class="card">
                 <div class="card-image">
                     <figure class="image is-4by3">
+                        <% if (personaje.imagen) { %>
                         <img src="<%= personaje.imagen %>" alt="<%= personaje.nombre %>">
+                        <% } %>
                     </figure>
                 </div>
                 <div class="card-content">

@@ -14,11 +14,12 @@ exports.get_add = async (req, res, next) => {
 
 
 exports.post_add = async (req, res, next) => {
+    const imagen = req.file ? `/uploads/${req.file.filename}` : '';
     const personaje = new Personaje(
         req.body.nombre,
         req.body.descripcion,
         req.body.tipo,
-        req.body.imagen
+        imagen
     );
     try {
         await personaje.save();
@@ -56,14 +57,24 @@ exports.get_edit = async (req, res, next) => {
 };
 
 exports.post_edit = async (req, res, next) => {
-    console.log('post_edit hit, id:', req.params.id, 'body:', req.body);
     try {
-        const id = parseInt(req.params.id);
+        const id = parseInt(req.params.id, 10);
+        const [rows] = await Personaje.fetchById(id);
+        const personajeActual = rows[0];
+
+        if (!personajeActual) {
+            return res.status(404).render('404');
+        }
+
+        const imagen = req.file
+            ? `/uploads/${req.file.filename}`
+            : personajeActual.imagen;
+
         const personaje = new Personaje(
             req.body.nombre,
             req.body.descripcion,
             req.body.tipo,
-            req.body.imagen
+            imagen
         );
         await personaje.update(id);
         res.redirect('/personajes');

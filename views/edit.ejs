@@ -3,7 +3,7 @@
 
 <a class="button is-link mb-4" href="/personajes">Back to Characters</a>
 
-<form action="/personajes/<%= personaje.id %>/edit" method="POST">
+<form action="/personajes/<%= personaje.id %>/edit" method="POST" enctype="multipart/form-data">
     <input type = "hidden" name = "_csrf" value = "<%= csrfToken %>" >
     <div class="field">
         <label for="nombre" class="label">Name</label>
@@ -29,10 +29,18 @@
             </div>
         </div>
     </div>
+    <% if (personaje.imagen) { %>
     <div class="field">
-        <label for="imagen" class="label">Image URL</label>
+        <label class="label">Current Image</label>
+        <figure class="image is-128x128">
+            <img src="<%= personaje.imagen %>" alt="Current image for <%= personaje.nombre %>">
+        </figure>
+    </div>
+    <% } %>
+    <div class="field">
+        <label for="archivo" class="label">New Image (optional)</label>
         <div class="control">
-            <input id="imagen" name="imagen" class="input" type="text" value="<%= personaje.imagen %>">
+            <input id="archivo" name="archivo" class="input" type="file" accept="image/png,image/jpg,image/jpeg">
         </div>
     </div>
     <input class="button is-primary" type="submit" value="Save Changes">
