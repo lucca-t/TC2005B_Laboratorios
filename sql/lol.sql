@@ -23,8 +23,7 @@ SET @@SESSION.SQL_LOG_BIN= 0;
 -- GTID state at the beginning of the backup 
 --
 
-
---
+--  
 -- Table structure for table `personajes`
 --
 

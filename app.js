@@ -40,6 +40,7 @@ const fileFilter = (request, file, callback) => {
     }
 };
 
+
 app.use(multer({ storage: fileStorage, fileFilter: fileFilter }).single('archivo'));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
