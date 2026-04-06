@@ -27,7 +27,10 @@ module.exports = class Modelo {
 
     static fetchByName(nombre) {
         return db.execute(
-            'SELECT p.id, p.nombre, p.descripcion, t.tipo, p.imagen FROM personajes p JOIN tipo t ON p.tipo_id = t.id WHERE p.nombre LIKE ?',
+            `SELECT p.id, p.nombre, p.descripcion, t.tipo, p.imagen 
+            FROM personajes p 
+                JOIN tipo t ON p.tipo_id = t.id 
+            WHERE p.nombre LIKE ?`,
             [`%${nombre}%`]
         );
     }
