@@ -14,7 +14,15 @@
     <label for="search">Search</label>
     <div class="field has-addons">
         <div class="control is-expanded">
-            <input type="text" id="search" name="q" class="input is-primary" placeholder="Roy...">
+            <input
+                type="text"
+                id="search"
+                name="q"
+                class="input is-primary"
+                placeholder="Roy..."
+                autocomplete="off"
+                data-ajax-search="input"
+            >
         </div>
         <div class="control">
             <button type="submit" class="button is-link">Go</button>
@@ -22,7 +30,20 @@
     </div>
 </form>
 
-<div class="columns is-multiline mt-3">
+<article class="message is-info mb-4">
+    <div class="message-header">
+        <p>AJAX Component</p>
+    </div>
+    <div class="message-body">
+        LA SEARCH BAR ESTÁ USANDO AJAX
+    </div>
+</article>
+
+<p id="search-status" class="is-size-7 has-text-grey mb-3" data-ajax-search="status">
+    Type to search in real time.
+</p>
+
+<div class="columns is-multiline mt-3" data-ajax-search="results">
     <% for (let personaje of personajes) { %>
         <div class="column is-one-third">
             <div class="card">
@@ -45,5 +66,7 @@
         </div>
     <% } %>
 </div>
+
+<script src="/js/personajes-search.js" defer></script>
 
 <%- include('includes/_footer') %>

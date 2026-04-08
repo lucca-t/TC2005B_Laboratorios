@@ -41,6 +41,27 @@ exports.get_search = async (req, res, next) => {
   }
 };
 
+exports.get_search_ajax = async (req, res, next) => {
+  try {
+    const query = (req.query.q || '').trim();
+    const [personajes] = await Personaje.fetchByName(query);
+    const canEdit = (req.session.permisos || []).includes('crear_personajes');
+    const payload = personajes.map((personaje) => ({
+      ...personaje,
+      canEdit,
+    }));
+
+    res.status(200).json({
+      query,
+      count: payload.length,
+      personajes: payload,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({error: 'Error searching personajes'});
+  }
+};
+
 exports.get_edit = async (req, res, next) => {
   try {
     const id = req.params.id;
