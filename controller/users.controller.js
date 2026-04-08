@@ -22,34 +22,26 @@ exports.get_login = (request, response, next) => {
 exports.post_login = (request, response, next) => {
   const now = new Date().toUTCString();
 
-  User.fetchOne(request.body.username).then(([rows, fieldData]) => {
-    if (rows.length > 0) {
-      bcrypt.compare(request.body.password, rows[0].password).then((doMatch) => {
-        if (doMatch) {
-          response.setHeader('Set-Cookie', `lastVisit=${encodeURIComponent(now)}; HttpOnly`);
-          request.session.isLoggedIn = true;
-          request.session.username = request.body.username;
-          User.getPermisos(request.body.username).then(([permisos]) => {
-            request.session.permisos = permisos.map((p) => p.nombre_privilegio);
-            return request.session.save(() => {
-              return response.redirect('/personajes');
-            });
-          }).catch((error) => {
-            console.log(error);
-            next(error);
-          });
-        } else {
-          request.session.error = 'Usuario y/o contraseña no coinciden.';
-          return response.redirect('/users/login');
-        }
-      }).catch((error) => {
-        console.log(error);
-        next(error);
-      });
-    } else {
+  User.fetchAuthContext(request.body.username).then((authContext) => {
+    if (!authContext.user) {
       request.session.error = 'Usuario y/o contraseña no coinciden.';
       return response.redirect('/users/login');
     }
+
+    return bcrypt.compare(request.body.password, authContext.user.password).then((doMatch) => {
+      if (!doMatch) {
+        request.session.error = 'Usuario y/o contraseña no coinciden.';
+        return response.redirect('/users/login');
+      }
+
+      response.setHeader('Set-Cookie', `lastVisit=${encodeURIComponent(now)}; HttpOnly`);
+      request.session.isLoggedIn = true;
+      request.session.username = request.body.username;
+      request.session.permisos = authContext.permisos.map((p) => p.nombre_privilegio);
+      return request.session.save(() => {
+        return response.redirect('/personajes');
+      });
+    });
   }).catch((error) => {
     console.log(error);
     next(error);

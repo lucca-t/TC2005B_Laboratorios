@@ -8,6 +8,9 @@
     "ecmaVersion": 2022,
     "sourceType": "script"
   },
+  "ignorePatterns": [
+    "old_labs/**"
+  ],
   "rules": {
     "require-jsdoc": "off",
     "valid-jsdoc": "off"
