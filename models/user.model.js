@@ -19,6 +19,18 @@ module.exports = class User {
     });
   }
 
+  saveWithStoredProcedure(defaultRoleId = 1) {
+    return bcrypt.hash(this.password, 12).then((passwordCifrado) => {
+      return db.execute(
+          'CALL sp_register_user(?, ?, ?, ?, ?)',
+          [this.username, this.nombre, passwordCifrado, this.correo, defaultRoleId],
+      ).then(([resultSets]) => {
+        const statusRows = Array.isArray(resultSets) && Array.isArray(resultSets[0]) ? resultSets[0] : [];
+        return statusRows[0] || null;
+      });
+    });
+  }
+
   static fetchOne(username) {
     return db.execute('SELECT * FROM usuarios WHERE username = ?', [username]);
   }

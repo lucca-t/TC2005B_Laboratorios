@@ -72,26 +72,27 @@ exports.get_signup = (request, response, next) => {
 };
 
 exports.post_signup = (request, response, next) => {
-  if (request.body.password != request.body.password_confirm) {
+  if (request.body.password !== request.body.password_confirm) {
     request.session.error = 'Passwords dont match';
     return response.redirect('/users/signup');
   }
 
-  User.fetchOne(request.body.username).then(([rows, fieldData]) => {
-    if (rows.length > 0) {
+  const user = new User(
+      request.body.username, request.body.nombre, request.body.password, request.body.correo);
+
+  user.saveWithStoredProcedure(1).then((registerStatus) => {
+    if (!registerStatus || registerStatus.ok !== 1) {
       request.session.error = 'This username already exists';
       return response.redirect('/users/signup');
     }
 
-    const user = new User(
-        request.body.username, request.body.nombre, request.body.password, request.body.correo);
-    user.save().then(() => {
-      return response.redirect('/users/login');
-    }).catch((error) => {
-      console.log(error);
-      next(error);
-    });
+    return response.redirect('/users/login');
   }).catch((error) => {
+    if (error && error.code === 'ER_DUP_ENTRY') {
+      request.session.error = 'This username already exists';
+      return response.redirect('/users/signup');
+    }
+
     console.log(error);
     next(error);
   });

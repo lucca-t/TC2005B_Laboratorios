@@ -10,10 +10,17 @@
 <a class="button is-link" href="/quotes">Quotes</a>
 <a class="button is-link" href="/quotes/about">About</a>
 
-
-<label for="serach">Search</label>
-<input type="text" id="search" class="input is-primary" placeholder="Roy...">
-<br><br>
+<form method="GET" action="/personajes/search" class="mb-4">
+    <label for="search">Search</label>
+    <div class="field has-addons">
+        <div class="control is-expanded">
+            <input type="text" id="search" name="q" class="input is-primary" placeholder="Roy...">
+        </div>
+        <div class="control">
+            <button type="submit" class="button is-link">Go</button>
+        </div>
+    </div>
+</form>
 
 <div class="columns is-multiline mt-3">
     <% for (let personaje of personajes) { %>

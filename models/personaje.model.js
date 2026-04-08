@@ -19,19 +19,11 @@ module.exports = class Modelo {
   }
 
   static fetchAll() {
-    return db.execute(
-        'SELECT p.id, p.nombre, p.descripcion, t.tipo, p.imagen FROM personajes p JOIN tipo t ON p.tipo_id = t.id',
-    );
+    return db.execute('CALL sp_list_personajes(?)', [null]).then(([resultSets]) => [resultSets[0]]);
   }
 
   static fetchByName(nombre) {
-    return db.execute(
-        `SELECT p.id, p.nombre, p.descripcion, t.tipo, p.imagen 
-            FROM personajes p 
-                JOIN tipo t ON p.tipo_id = t.id 
-            WHERE p.nombre LIKE ?`,
-        [`%${nombre}%`],
-    );
+    return db.execute('CALL sp_list_personajes(?)', [nombre]).then(([resultSets]) => [resultSets[0]]);
   }
 
   static fetchById(id) {
