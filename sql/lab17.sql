@@ -55,6 +55,13 @@ END$$
 
 CREATE DEFINER=`luccat_db`@`localhost` PROCEDURE `sp_register_user` (IN `p_username` VARCHAR(50), IN `p_nombre` VARCHAR(100), IN `p_password_hash` VARCHAR(500), IN `p_correo` VARCHAR(100), IN `p_default_role_id` INT)   BEGIN
 DECLARE v_exists INT DEFAULT 0;
+DECLARE v_role_exists INT DEFAULT 0;
+
+DECLARE EXIT HANDLER FOR SQLEXCEPTION
+BEGIN
+ROLLBACK;
+SELECT 0 AS ok, 'REGISTER_FAILED' AS message;
+END;
 
 START TRANSACTION;
 
@@ -66,6 +73,14 @@ IF v_exists > 0 THEN
 ROLLBACK;
 SELECT 0 AS ok, 'USERNAME_EXISTS' AS message;
 ELSE
+SELECT COUNT(*) INTO v_role_exists
+FROM roles
+WHERE id = p_default_role_id;
+
+IF v_role_exists = 0 THEN
+ROLLBACK;
+SELECT 0 AS ok, 'ROLE_NOT_FOUND' AS message;
+ELSE
 INSERT INTO usuarios(username, nombre, password, correo)
 VALUES (p_username, p_nombre, p_password_hash, p_correo);
 
@@ -74,6 +89,7 @@ VALUES (p_username, p_default_role_id);
 
 COMMIT;
 SELECT 1 AS ok, 'USER_CREATED' AS message;
+END IF;
 END IF;
 END$$
 
